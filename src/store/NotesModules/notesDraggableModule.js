@@ -2,16 +2,22 @@ import { resolveComponent, markRaw } from 'vue';
 
 import Notepad from '../../components/notepad/Notepad.vue';
 import Todo from '../../components/todo/Todo.vue';
+import { notesComponentsListString } from '../../helpers/all_conponents_list';
+import { shuffleArray } from '../../helpers/helper';
 
 const components = {
   Notepad,
   Todo,
 };
+
 const lookupComponent = (name) => {
   const comp = components[name] ?? resolveComponent(name);
   return markRaw(comp);
 };
-const componentsList = ['Notepad', 'Todo'].map(lookupComponent);
+
+const componentsList = shuffleArray(notesComponentsListString).map(
+  lookupComponent
+);
 
 const moduleNotesDraggable = {
   state() {

@@ -12,6 +12,7 @@ import moduleTextUtils from './UtilitiesModules/textUtilsModule';
 import moduleDraggableUtilitiesModule from './UtilitiesModules/draggableUtilitiesModule';
 import moduleNotes from './NotesModules';
 import moduleGames from './GamesModules';
+import moduleUtilites from './UtilitiesModules';
 
 // Create a new vuex store instance.
 const store = createStore({
@@ -33,6 +34,7 @@ const store = createStore({
     draggableUtilities: moduleDraggableUtilitiesModule,
     notes: moduleNotes,
     games: moduleGames,
+    utilites: moduleUtilites,
   },
 });
 

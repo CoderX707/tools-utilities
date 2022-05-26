@@ -7,6 +7,10 @@ import Stopwatch from '../../components/stopwatch/Stopwatch.vue';
 import PasswordGenerator from '../../components/password-generator/PasswordGenerator.vue';
 import QrCodeGenerator from '../../components/qr-code-generator/QrCodeGenerator.vue';
 import TextUtils from '../../components/text-utils/TextUtils.vue';
+import Calculator from '../../components/calculator/index.vue';
+import Weather from '../../components/weather/index.vue';
+import { shuffleArray } from '../../helpers/helper';
+import { utilitesSomponentsListString } from '../../helpers/all_conponents_list';
 
 const components = {
   ConverterBox,
@@ -16,20 +20,18 @@ const components = {
   PasswordGenerator,
   QrCodeGenerator,
   TextUtils,
+  Calculator,
+  Weather,
 };
+
 const lookupComponent = (name) => {
   const c = components[name] ?? resolveComponent(name);
   return markRaw(c);
 };
-const compsList = [
-  'currencyConverter',
-  'Stopwatch',
-  'ConverterBox',
-  'Traslate',
-  'PasswordGenerator',
-  'QrCodeGenerator',
-  'TextUtils',
-].map(lookupComponent);
+
+const compsList = shuffleArray(utilitesSomponentsListString).map(
+  lookupComponent
+);
 
 const moduleDraggableUtilitiesModule = {
   state() {

@@ -2,7 +2,7 @@ export const DEFAULT_TITLE = 'Tools & Utilities';
 export const currencyLocalstorageKey = 'currency';
 export const todotorageKey = 'todo';
 export const pdfFileName = 'document.pdf';
-
+export const Weather_API_key = import.meta.env.VITE_WEATHER_API_KEY;
 export const UpperCaseText = 'Make Uppercase';
 export const LowerCaseText = 'Make Lowercase';
 export const RemovePunctuations = 'Remove Punctuations';
@@ -10,6 +10,8 @@ export const NewLineRemover = 'New Line Remover';
 export const ExtraSpacesRemover = 'Extra Spaces Remover';
 export const NumberRemover = 'Number Remover';
 export const quizApiBaseUrl = 'https://opentdb.com/api.php?'; //amount=10&category=30&difficulty=medium&type=multiple
+export const weatherApiBaseUrl =
+  'https://api.openweathermap.org/data/2.5/weather?';
 export const get_currency_api_endpoint =
   'https://api.exchangerate-api.com/v4/latest/USD';
 export const lowerCaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
@@ -51,6 +53,26 @@ export const convertLengthOptions = [
   'Foot',
   'Inch',
   'Nautical mile',
+];
+export const calculatorButtons = [
+  '+',
+  '-',
+  '*',
+  '/',
+  '7',
+  '8',
+  '9',
+  '%',
+  '4',
+  '5',
+  '6',
+  '.',
+  '1',
+  '2',
+  '3',
+  '0',
+  'C',
+  '=',
 ];
 export const convertTemperatureOptions = ['Celsius', 'Fahrenheit', 'Kelvin'];
 export const quizCategory = [

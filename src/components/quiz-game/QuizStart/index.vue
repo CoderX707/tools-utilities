@@ -4,6 +4,16 @@ import QuestionAmount from './QuestionAmount.vue';
 import RedioButton from './RedioButton.vue';
 export default {
   components: { SelectCategory, QuestionAmount, RedioButton },
+  data() {
+    return {
+      difficultyRedioButton: [
+        { label: 'any', selected: true, groupName: 'difficulty' },
+        { label: 'easy', groupName: 'difficulty' },
+        { label: 'medium', groupName: 'difficulty' },
+        { label: 'hard', groupName: 'difficulty' },
+      ],
+    };
+  },
 };
 </script>
 <template>
@@ -34,53 +44,13 @@ export default {
         lg:my-1 lg:px-1 lg:w-1/2
         xl:my-1 xl:px-1 xl:w-1/2
       "
+      v-for="readioButton in difficultyRedioButton"
     >
-      <RedioButton label="Any" :selected="true" groupName="difficulty" />
-    </div>
-
-    <div
-      class="
-        my-1
-        px-1
-        w-1/2
-        overflow-hidden
-        sm:my-1 sm:px-1 sm:w-1/2
-        md:my-1 md:px-1 md:w-1/2
-        lg:my-1 lg:px-1 lg:w-1/2
-        xl:my-1 xl:px-1 xl:w-1/2
-      "
-    >
-      <RedioButton label="easy" groupName="difficulty" />
-    </div>
-
-    <div
-      class="
-        my-1
-        px-1
-        w-1/2
-        overflow-hidden
-        sm:my-1 sm:px-1 sm:w-1/2
-        md:my-1 md:px-1 md:w-1/2
-        lg:my-1 lg:px-1 lg:w-1/2
-        xl:my-1 xl:px-1 xl:w-1/2
-      "
-    >
-      <RedioButton label="medium" groupName="difficulty" />
-    </div>
-
-    <div
-      class="
-        my-1
-        px-1
-        w-1/2
-        overflow-hidden
-        sm:my-1 sm:px-1 sm:w-1/2
-        md:my-1 md:px-1 md:w-1/2
-        lg:my-1 lg:px-1 lg:w-1/2
-        xl:my-1 xl:px-1 xl:w-1/2
-      "
-    >
-      <RedioButton label="hard" groupName="difficulty" />
+      <RedioButton
+        :label="readioButton.label"
+        :selected="readioButton.selected"
+        :groupName="readioButton.groupName"
+      />
     </div>
   </div>
   <p class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
