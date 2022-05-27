@@ -1,5 +1,9 @@
 <script>
+import HeaderTitle from '../CommonComponents/HeaderTitle.vue';
 export default {
+  components: {
+    HeaderTitle,
+  },
   data() {
     return {
       interval: 0,
@@ -16,11 +20,11 @@ export default {
 };
 </script>
 <template>
-  <p class="font-bold text-gray-400 text-2xl text-center">Stopwatch</p>
+  <HeaderTitle heading="Stopwatch" />
   <p class="text-red-500 text-center my-2">
     {{ $store.state.stopwatch.errorMessage }}
   </p>
-  <p class="text-6xl text-center mb-5">{{ $store.state.stopwatch.duration }}</p>
+  <p class="text-6xl text-center mb-5 dark:text-gray-100">{{ $store.state.stopwatch.duration }}</p>
   <div class="flex items-center justify-center mb-3">
     <div
       class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"

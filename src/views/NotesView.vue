@@ -23,7 +23,7 @@ export default {
 </script>
 
 <template>
-  <div class="m-4">
+  <div class="mx-5 my-10">  
     <draggable class="grid md:grid-cols-3 gap-4" v-model="componentList">
       <template v-slot:item="{ item }">
         <div

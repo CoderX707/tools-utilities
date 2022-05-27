@@ -29,6 +29,7 @@ export default {
 <template>
   <QuillEditor
     v-model:content="$store.state.notes.notepad.inputValue"
+    class="dark:text-gray-300 dark:border-white"
     content-type="html"
     theme="snow"
     toolbar="full"
@@ -36,7 +37,7 @@ export default {
   />
 
   <button
-    class="float-right text-gray-500 hover:text-black"
+    class="float-right dark:text-gray-300 text-gray-500 hover:text-black"
     @click="exportToPDF"
   >
     Export to PDF

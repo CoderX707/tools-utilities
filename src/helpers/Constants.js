@@ -9,6 +9,7 @@ export const RemovePunctuations = 'Remove Punctuations';
 export const NewLineRemover = 'New Line Remover';
 export const ExtraSpacesRemover = 'Extra Spaces Remover';
 export const NumberRemover = 'Number Remover';
+export const colorTheme = 'color-theme';
 export const quizApiBaseUrl = 'https://opentdb.com/api.php?'; //amount=10&category=30&difficulty=medium&type=multiple
 export const weatherApiBaseUrl =
   'https://api.openweathermap.org/data/2.5/weather?';

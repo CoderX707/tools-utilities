@@ -1,18 +1,19 @@
 <script>
 import Checkbox from './Checkbox.vue';
+import HeaderTitle from '../CommonComponents/HeaderTitle.vue';
+
 export default {
   components: {
     Checkbox,
+    HeaderTitle
   },
 };
 </script>
 
 <template>
   <div>
-    <p class="font-bold text-gray-400 text-2xl text-center mb-4">
-      Password Generator
-    </p>
-    <div class="relative">
+    <HeaderTitle heading="Password Generator" />
+    <div class="relative mt-4">
       <input
         type="search"
         v-model="$store.state.generatePassword.ganeratedPassword"

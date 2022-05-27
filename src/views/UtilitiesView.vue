@@ -20,7 +20,7 @@ export default {
 
 <template>
   <section class="text-gray-600 body-font">
-    <div class="container px-5 py-20 mx-auto">
+    <div class="container px-5 py-10 mx-auto">
       <draggable class="flex flex-wrap -m-4" v-model="myList">
         <template v-slot:item="{ item }">
           <div class="flex relative m-4 cursor-move">

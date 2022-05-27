@@ -1,7 +1,8 @@
 <script></script>
 <template>
-  <div class="relative">
+  <div class="relative mt-4">
     <input
+      v-model="$store.state.utilites.weather.cityName"
       type="search"
       class="
         block
@@ -39,6 +40,7 @@
         py-2
         dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
       "
+      @click="$store.dispatch('getWeather')"
     >
       Search
     </button>

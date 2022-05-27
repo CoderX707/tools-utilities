@@ -24,10 +24,8 @@ export default {
       transition
       ease-in-out
       mb-4
-      focus:text-gray-700
-      focus:bg-white
-      focus:border-blue-600
-      focus:outline-none
+      dark:bg-gray-700 dark:text-gray-100
+      focus:border-blue-600 focus:outline-none
     "
     rows="4"
     placeholder="Output will be placed here."

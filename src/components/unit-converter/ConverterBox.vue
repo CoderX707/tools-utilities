@@ -118,7 +118,7 @@ export default {
     ></InputSelectGroupSecond>
   </div>
 
-  <p class="text-center font-bold">
+  <p class="text-center font-bold dark:text-gray-300">
     <span class="bg-amber-500 text-white font-bold">Formula:</span>
     {{ $store.state.converter.formula }}
   </p>

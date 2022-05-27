@@ -18,17 +18,14 @@ export default {
       py-1.5
       text-base
       font-normal
-      text-gray-700
       bg-white bg-clip-padding
       border border-solid border-gray-300
       rounded
       transition
       ease-in-out
       mb-4
-      focus:text-gray-700
-      focus:bg-white
-      focus:border-blue-600
-      focus:outline-none
+      dark:bg-gray-700 dark:text-gray-100
+      focus:border-blue-600 focus:outline-none
     "
     rows="2"
     placeholder="URL, Text to Generate QR Code"
@@ -40,11 +37,7 @@ export default {
       :size="250"
       level="H"
     />
-    <img
-      class="qrcode__image"
-      src="/images/favicon.png"
-      alt="Chen Fengyuan"
-    />
+    <img class="qrcode__image" src="/images/favicon.png" alt="Chen Fengyuan" />
   </figure>
 </template>
 <style scoped>

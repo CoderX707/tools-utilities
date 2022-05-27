@@ -89,11 +89,11 @@ export default {
 
 <template>
   <div>
-    <p class="italic text-xl">
+    <p class="italic text-xl dark:text-gray-400">
       {{ $store.state.currencyModule.currencyInputValue }}
       {{ $store.state.currencyModule.selectedCurrrencyFrom.country }} equals,
     </p>
-    <h2 class="text-2xl font-bold">
+    <h2 class="text-2xl font-bold dark:text-white">
       {{ $store.state.currencyModule.currencyConvertedInputValue }}
       {{ $store.state.currencyModule.selectedCurrrencyTo.country }}
     </h2>
@@ -113,7 +113,7 @@ export default {
       @change-currency-second="onChangeCurrencySecond"
     ></InputGroupSecond>
   </div>
-  <p class="text-center font-bold">
+  <p class="text-center font-bold dark:text-gray-300">
     <span class="bg-amber-500 text-white font-bold">Formula:</span>
     {{ $store.state.currencyModule.currencyFormula }}
   </p>

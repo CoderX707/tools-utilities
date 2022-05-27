@@ -13,6 +13,7 @@ import moduleDraggableUtilitiesModule from './UtilitiesModules/draggableUtilitie
 import moduleNotes from './NotesModules';
 import moduleGames from './GamesModules';
 import moduleUtilites from './UtilitiesModules';
+import moduleDarkLightTheme from './dark_light_themeModule';
 
 // Create a new vuex store instance.
 const store = createStore({
@@ -30,11 +31,12 @@ const store = createStore({
     generatePassword: moduleGeneratePassword,
     qrcode: moduleQRCodeGenerator,
     textUtils: moduleTextUtils,
-    stopwatch:moduleStopwatch,
+    stopwatch: moduleStopwatch,
     draggableUtilities: moduleDraggableUtilitiesModule,
     notes: moduleNotes,
     games: moduleGames,
     utilites: moduleUtilites,
+    darkLightTheme: moduleDarkLightTheme,
   },
 });
 

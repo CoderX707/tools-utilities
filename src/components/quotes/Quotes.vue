@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div class="md:p-5 slide md:bg-gray-200">
+  <div class="md:p-5 slide md:bg-gray-200 dark:bg-gray-900">
     <div class="carousel-inner relative overflow-hidden w-full">
       <div
         style="max-width: 99%"
@@ -22,6 +22,7 @@ export default {
           shadow-lg
           rounded-lg
           bg-white
+          dark:bg-gray-700
           carousel-item
           inset-0
           p-3
@@ -34,7 +35,7 @@ export default {
         "
       >
         <div class="w-full mb-10">
-          <p class="text-sm text-gray-600 text-center px-5 text-xl">
+          <p class="text-sm text-gray-600 dark:text-gray-100 text-center px-5 text-xl">
             <span class="text-indigo-500">“ </span> {{ quote.text }}
             <span class="text-indigo-500"> ”</span>
           </p>
