@@ -4,7 +4,8 @@ import { apiGETcall } from '../../helpers/api_call';
 const moduleWeather = {
   state() {
     return {
-      cityName: 'pune',
+      cityName: '',
+      errorMessage: '',
       responseObject: null,
       weathericon: {
         Thunderstorm: 'wi-thunderstorm',
@@ -19,7 +20,7 @@ const moduleWeather = {
     };
   },
   mutations: {
-    get_Weathericon(state, {icons, range_id}) {
+    get_Weathericon(state, { icons, range_id }) {
       console.log(icons, range_id);
       switch (true) {
         case range_id >= 200 && range_id <= 232:
@@ -50,6 +51,7 @@ const moduleWeather = {
   },
   actions: {
     async getWeather({ state, commit }) {
+      state.errorMessage = '';
       console.log(state.cityName);
       const response = await apiGETcall(
         `${weatherApiBaseUrl}q=${state.cityName}&appid=${Weather_API_key}&units=metric`
@@ -60,6 +62,8 @@ const moduleWeather = {
           icons: state.weathericon,
           range_id: response.data.weather[0].id,
         });
+      } else {
+        state.errorMessage = 'Information not found please check city name';
       }
     },
   },

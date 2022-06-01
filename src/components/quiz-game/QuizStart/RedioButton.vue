@@ -2,6 +2,7 @@
 export default {
   props: {
     label: { type: String, required: true },
+    id:{type: String, required: true},
     groupName: { type: String, required: true },
     selected: Boolean,
   },
@@ -17,12 +18,11 @@ export default {
           label: $event.target.value,
         })
       "
-      :disabled="label === 'True / False'"
       :checked="selected"
       :id="label"
       type="radio"
       :name="groupName"
-      :value="label"
+      :value="id"
       class="
         w-4
         h-4

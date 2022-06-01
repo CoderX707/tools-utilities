@@ -1,8 +1,10 @@
 <script>
 import HeaderTitle from '../CommonComponents/HeaderTitle.vue';
+import ToastMessage from '../CommonComponents/ToastMessage.vue';
 export default {
   components: {
     HeaderTitle,
+    ToastMessage,
   },
   data() {
     return {
@@ -21,10 +23,13 @@ export default {
 </script>
 <template>
   <HeaderTitle heading="Stopwatch" />
-  <p class="text-red-500 text-center my-2">
-    {{ $store.state.stopwatch.errorMessage }}
+  <ToastMessage
+    :message="$store.state.stopwatch.errorMessage"
+    id="stopwatchError"
+  />
+  <p class="text-6xl text-center mb-5 dark:text-gray-100">
+    {{ $store.state.stopwatch.duration }}
   </p>
-  <p class="text-6xl text-center mb-5 dark:text-gray-100">{{ $store.state.stopwatch.duration }}</p>
   <div class="flex items-center justify-center mb-3">
     <div
       class="inline-flex shadow-md hover:shadow-lg focus:shadow-lg"

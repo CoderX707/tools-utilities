@@ -14,6 +14,7 @@ import moduleNotes from './NotesModules';
 import moduleGames from './GamesModules';
 import moduleUtilites from './UtilitiesModules';
 import moduleDarkLightTheme from './dark_light_themeModule';
+import moduleHome from './HomeModules';
 
 // Create a new vuex store instance.
 const store = createStore({
@@ -37,6 +38,7 @@ const store = createStore({
     games: moduleGames,
     utilites: moduleUtilites,
     darkLightTheme: moduleDarkLightTheme,
+    home: moduleHome,
   },
 });
 

@@ -86,7 +86,7 @@ export default {
             <router-link to="/">
               <img
                 class="block h-8 w-auto"
-                src="/images/tulogo.png"
+                :src="$store.state.darkLightTheme.logo"
                 alt="Workflow"
               />
             </router-link>

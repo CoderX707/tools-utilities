@@ -7,10 +7,10 @@ export default {
   data() {
     return {
       difficultyRedioButton: [
-        { label: 'any', selected: true, groupName: 'difficulty' },
-        { label: 'easy', groupName: 'difficulty' },
-        { label: 'medium', groupName: 'difficulty' },
-        { label: 'hard', groupName: 'difficulty' },
+        { label: 'Any', selected: true, id: 'any', groupName: 'difficulty' },
+        { label: 'Easy', groupName: 'difficulty', id: 'easy' },
+        { label: 'Medium', groupName: 'difficulty', id: 'medium' },
+        { label: 'Hard', groupName: 'difficulty', id: 'hard' },
       ],
     };
   },
@@ -47,6 +47,7 @@ export default {
       v-for="readioButton in difficultyRedioButton"
     >
       <RedioButton
+        :id="readioButton.id"
         :label="readioButton.label"
         :selected="readioButton.selected"
         :groupName="readioButton.groupName"
@@ -79,7 +80,12 @@ export default {
         xl:my-1 xl:px-1 xl:w-1/2
       "
     >
-      <RedioButton label="Multiple Choice" :selected="true" groupName="type" />
+      <RedioButton
+        label="Multiple Choice"
+        id="multiple"
+        :selected="true"
+        groupName="type"
+      />
     </div>
     <div
       class="
@@ -93,7 +99,7 @@ export default {
         xl:my-1 xl:px-1 xl:w-1/2
       "
     >
-      <RedioButton label="True / False" groupName="type" />
+      <RedioButton label="True / False" id="boolean" groupName="type" />
     </div>
   </div>
   <div class="flex justify-center items-center">

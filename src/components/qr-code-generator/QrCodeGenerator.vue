@@ -37,19 +37,23 @@ export default {
       :size="250"
       level="H"
     />
-    <img class="qrcode__image" src="/images/favicon.png" alt="Chen Fengyuan" />
+    <img
+      class="qrcode__image dark:bg-gray-700 bg-white"
+      :src="$store.state.darkLightTheme.logo"
+      alt="QR Code"
+    />
   </figure>
 </template>
 <style scoped>
 .qrcode {
   display: table;
   font-size: 0;
+  border: 2px solid white;
   margin-bottom: 0;
   position: relative;
 }
 .qrcode__image {
-  background-color: #fff;
-  border: 0.25rem solid #fff;
+  border: 0.15rem solid #fff;
   border-radius: 0.25rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
   height: 20%;

@@ -1,9 +1,10 @@
-import { colorTheme } from '../helpers/Constants';
+import { colorTheme, LogoDark, LogoLight } from '../helpers/Constants';
 
 const moduleDarkLightTheme = {
   state() {
     return {
       themeColor: 'light',
+      logo: LogoLight,
     };
   },
   mutations: {
@@ -11,16 +12,19 @@ const moduleDarkLightTheme = {
       const color = this.getters.getLocalStorage;
       if (color === 'light') {
         state.themeColor = 'dark';
+        state.logo = LogoDark;
         document.documentElement.classList.add(state.themeColor);
         localStorage.setItem(colorTheme, state.themeColor);
       } else {
         document.documentElement.classList.remove(state.themeColor);
         state.themeColor = 'light';
+        state.logo = LogoLight;
         localStorage.setItem(colorTheme, state.themeColor);
       }
     },
     applyTheme(state) {
       const color = this.getters.getLocalStorage;
+      color === 'light' ? (state.logo = LogoLight) : (state.logo = LogoDark);
       document.documentElement.classList.add(color);
     },
   },

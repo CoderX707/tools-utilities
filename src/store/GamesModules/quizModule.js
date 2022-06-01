@@ -1,5 +1,6 @@
 import { quizApiBaseUrl, quizCategory } from '../../helpers/Constants';
 import { apiGETcall } from '../../helpers/api_call';
+import { generateURL } from '../../helpers/helper';
 
 const moduleQuize = {
   state() {
@@ -15,6 +16,7 @@ const moduleQuize = {
       currentQuestion: {},
       currentQuestionIndex: 0,
       quizScore: 0,
+      errorMessage: '',
     };
   },
   mutations: {
@@ -54,11 +56,12 @@ const moduleQuize = {
       state.selectedCategory = 'any';
       state.numberOfQuestions = 5;
       state.selectedDificulty = 'any';
-      state.selectedType = 'multiple';
+      state.selectedType = 'any';
       state.quizLoading = false;
       state.quizStart = 0; // quiz start 0, quiz started 1, quiz end 2
       (state.currentQuestion = {}), (state.currentQuestionIndex = 0);
       state.quizScore = 0;
+      state.errorMessage = '';
     },
   },
   actions: {
@@ -68,12 +71,19 @@ const moduleQuize = {
       dispatch('getQuizQuestions');
     },
     async getQuizQuestions({ state, commit }) {
+      state.errorMessage = '';
+      const returnUrl = generateURL(
+        state.selectedCategory,
+        state.selectedDificulty,
+        state.selectedType
+      );
       const response = await apiGETcall(
-        `${quizApiBaseUrl}amount=${state.numberOfQuestions}&category=${state.selectedCategory}&difficulty=${state.selectedDificulty}&type=${state.selectedType}`
+        `${quizApiBaseUrl}amount=${state.numberOfQuestions}${returnUrl}`
       );
       if (response.status === 200 && response.data.results.length > 0) {
         commit('quizeStarted', response.data.results);
       } else {
+        state.errorMessage = 'Something went wrong please try again';
         state.quizLoading = false;
         state.quizStart = 0;
       }

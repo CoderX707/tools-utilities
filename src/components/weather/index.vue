@@ -1,22 +1,28 @@
 <script>
 import SearchBox from './SearchBox.vue';
 import HeaderTitle from '../CommonComponents/HeaderTitle.vue';
+import ToastMessage from '../CommonComponents/ToastMessage.vue';
 export default {
   name: 'Weather',
   components: {
     HeaderTitle,
     SearchBox,
+    ToastMessage,
   },
 };
 </script>
 <template>
   <HeaderTitle heading="Weather" />
+  <ToastMessage
+    :message="$store.state.utilites.weather.errorMessage"
+    id="weatherError"
+  />
   <SearchBox />
   <div
     class="grid justify-items-center"
     v-if="$store.state.utilites.weather.responseObject !== null"
   >
-    <p class="mt-4 text-2xl dark:text-white">
+    <p class="my-4 text-2xl dark:text-white">
       {{ $store.state.utilites.weather.responseObject.name }},
       {{ $store.state.utilites.weather.responseObject.sys.country }}
     </p>

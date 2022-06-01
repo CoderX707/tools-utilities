@@ -11,3 +11,17 @@ export const shuffleArray = (array) => {
   }
   return array;
 };
+
+export const generateURL = (category, difficulty, type) => {
+  let urlString = '';
+  if (category !== 'any') {
+    urlString += `&category=${category}`;
+  }
+  if (difficulty !== 'any') {
+    urlString += `&difficulty=${difficulty}`;
+  }
+  if (type !== 'any') {
+    urlString += `&type=${type}`;
+  }
+  return urlString;
+};

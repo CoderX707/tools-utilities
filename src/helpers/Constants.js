@@ -1,4 +1,6 @@
 export const DEFAULT_TITLE = 'Tools & Utilities';
+export const LogoDark = '/images/dark-logo.png';
+export const LogoLight = '/images/light-logo.png';
 export const currencyLocalstorageKey = 'currency';
 export const todotorageKey = 'todo';
 export const pdfFileName = 'document.pdf';

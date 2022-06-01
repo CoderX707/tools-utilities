@@ -1,18 +1,22 @@
 <script>
 import OptionCheckBox from './OptionCheckBox.vue';
+import HeaderTitle from '../CommonComponents/HeaderTitle.vue';
 export default {
   components: {
     OptionCheckBox,
+    HeaderTitle
   },
 };
 </script>
 <template>
+<HeaderTitle heading="Text utilites"/>
   <textarea
     v-model="$store.state.textUtils.inputText"
     class="
       form-control
       block
       w-full
+      mt-4
       px-3
       py-1.5
       text-base

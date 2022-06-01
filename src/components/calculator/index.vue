@@ -65,7 +65,7 @@ export default defineComponent({
           dark:focus:ring-gray-700
         "
         :class="{
-          'bg-gray-200 dark:bg-gray-700': ['C', '*', '/', '-', '+', '%', '='].includes(n),
+          'bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800': ['C', '*', '/', '-', '+', '%', '='].includes(n),
           'col-span-2': ['C', '='].includes(n),
         }"
       >
