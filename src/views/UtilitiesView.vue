@@ -21,14 +21,12 @@ export default {
 <template>
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-10 mx-auto">
-      <draggable class="flex flex-wrap -m-4" v-model="myList">
+      <draggable class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" v-model="myList">
         <template v-slot:item="{ item }">
-          <div class="flex relative m-4 cursor-move">
+          <div class="relative m-4 cursor-move">
             <div
               class="
-                mx-auto
-                p-4
-                max-w-lg
+               p-4
                 bg-white
                 rounded-lg
                 border border-gray-200
@@ -36,7 +34,6 @@ export default {
                 sm:p-6
                 lg:p-8
                 dark:bg-gray-800 dark:border-gray-700
-                w-full
               "
             >
               <component :is="item" />
