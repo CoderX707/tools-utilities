@@ -29,7 +29,7 @@ export default {
   <section class="text-gray-600 body-font">
     <div class="lg:container px-5 py-5 mx-auto">
       <draggable
-        class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+        class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"
         v-model="conponentsList"
       >
         <template v-slot:item="{ item }">

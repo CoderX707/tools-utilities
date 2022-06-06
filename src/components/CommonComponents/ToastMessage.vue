@@ -15,10 +15,10 @@ export default {
       div.style.display = 'none';
       if (this.message !== '') {
         div.style.display = 'flex';
-        this.timeOutClear = setTimeout(
-          () => (div.style.display = 'none'),
-          2000
-        );
+        div.style.animation = 'fade-in 0.5s';
+        this.timeOutClear = setTimeout(() => {
+          div.style.display = 'none';
+        }, 2000);
       }
     },
   },
@@ -36,7 +36,7 @@ export default {
   <div
     :id="id"
     class="
-      fixed
+      fixed z-[100]
       top-5
       right-5
       flex
@@ -83,3 +83,13 @@ export default {
     <div class="ml-3 text-sm font-normal">{{ message }}</div>
   </div>
 </template>
+<style>
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+</style>

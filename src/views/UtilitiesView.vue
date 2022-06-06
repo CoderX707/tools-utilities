@@ -21,7 +21,7 @@ export default {
 <template>
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-10 mx-auto">
-      <draggable class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" v-model="myList">
+      <draggable class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4" v-model="myList">
         <template v-slot:item="{ item }">
           <div class="relative m-4 cursor-move">
             <div
