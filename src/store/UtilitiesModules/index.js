@@ -1,7 +1,7 @@
 import moduleCalculator from './calculatorModule';
 import moduleWeather from './weatherModule';
 
-const moduleUtilites = {
+const moduleUtilities = {
   state() {
     return {};
   },
@@ -14,4 +14,4 @@ const moduleUtilites = {
   },
 };
 
-export default moduleUtilites;
+export default moduleUtilities;

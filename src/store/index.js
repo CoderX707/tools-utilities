@@ -12,7 +12,7 @@ import moduleTextUtils from './UtilitiesModules/textUtilsModule';
 import moduleDraggableUtilitiesModule from './UtilitiesModules/draggableUtilitiesModule';
 import moduleNotes from './NotesModules';
 import moduleGames from './GamesModules';
-import moduleUtilites from './UtilitiesModules';
+import moduleUtilities from './UtilitiesModules';
 import moduleDarkLightTheme from './dark_light_themeModule';
 import moduleHome from './HomeModules';
 
@@ -36,7 +36,7 @@ const store = createStore({
     draggableUtilities: moduleDraggableUtilitiesModule,
     notes: moduleNotes,
     games: moduleGames,
-    utilites: moduleUtilites,
+    utilites: moduleUtilities,
     darkLightTheme: moduleDarkLightTheme,
     home: moduleHome,
   },
