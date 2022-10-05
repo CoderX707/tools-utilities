@@ -5,10 +5,6 @@ export default {
   components: {
     Draggable,
   },
-  mounted() {
-    const div = document.getElementsByClassName('rich-text')[0].parentNode;
-    div.style.gridColumn = ' span 2 / span 2';
-  },
   computed: {
     componentList: {
       get() {
@@ -19,13 +15,20 @@ export default {
       },
     },
   },
+  mounted() {
+    const div = document.getElementsByClassName('rich-text')[0].parentNode;
+    div.style.gridColumn = ' span 2 / span 2';
+  },
 };
 </script>
 
 <template>
   <div class="mx-5 my-10">  
-    <draggable class="grid md:grid-cols-3 gap-4" v-model="componentList">
-      <template v-slot:item="{ item }">
+    <draggable
+      v-model="componentList"
+      class="grid md:grid-cols-3 gap-4"
+    >
+      <template #item="{ item }">
         <div
           :class="{
             'rich-text': item.components.QuillEditor,

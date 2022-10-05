@@ -7,5 +7,7 @@ export default {
 };
 </script>
 <template>
-  <p class="font-bold text-gray-400 text-2xl text-center">{{ heading }}</p>
+  <p class="font-bold text-gray-400 text-2xl text-center">
+    {{ heading }}
+  </p>
 </template>

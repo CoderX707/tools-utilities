@@ -18,12 +18,11 @@ export default {
 <template>
   <div class="flex items-center">
     <input
-      :checked="checkboxValue"
       :id="title"
-      type="checkbox"
-      @change="checkUncheck($event)"
-      :value="checkboxValue"
       v-model="checkboxValue"
+      :checked="checkboxValue"
+      type="checkbox"
+      :value="checkboxValue"
       class="
         w-4
         h-4
@@ -36,11 +35,11 @@ export default {
         focus:ring-2
         dark:bg-gray-700 dark:border-gray-600
       "
-    />
+      @change="checkUncheck($event)"
+    >
     <label
       :for="title"
       class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-      >{{ title }}</label
-    >
+    >{{ title }}</label>
   </div>
 </template>

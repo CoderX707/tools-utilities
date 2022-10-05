@@ -16,7 +16,7 @@ export default {
       this.$store.commit('getDuration');
     }, 100);
   },
-  beforeDestroy() {
+  beforeUnmount() {
     clearInterval(this.interval);
   },
 };
@@ -24,8 +24,8 @@ export default {
 <template>
   <HeaderTitle heading="Stopwatch" />
   <ToastMessage
-    :message="$store.state.stopwatch.errorMessage"
     id="stopwatchError"
+    :message="$store.state.stopwatch.errorMessage"
   />
   <p class="text-6xl text-center mb-5 dark:text-gray-100">
     {{ $store.state.stopwatch.duration }}
@@ -37,7 +37,6 @@ export default {
     >
       <button
         type="button"
-        @click="$store.commit('startStopwatch')"
         class="
           rounded-l
           inline-block
@@ -56,12 +55,12 @@ export default {
           duration-150
           ease-in-out
         "
+        @click="$store.commit('startStopwatch')"
       >
         Start
       </button>
       <button
         type="button"
-        @click="$store.commit('resetStopwatch')"
         class="
           inline-block
           px-7
@@ -79,12 +78,12 @@ export default {
           duration-150
           ease-in-out
         "
+        @click="$store.commit('resetStopwatch')"
       >
         Reset
       </button>
       <button
         type="button"
-        @click="$store.commit('stopStopwatch')"
         class="
           rounded-r
           inline-block
@@ -103,6 +102,7 @@ export default {
           duration-150
           ease-in-out
         "
+        @click="$store.commit('stopStopwatch')"
       >
         Stop
       </button>

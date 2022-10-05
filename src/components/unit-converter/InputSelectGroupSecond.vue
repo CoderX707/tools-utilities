@@ -1,6 +1,7 @@
 <script>
 export default {
   props: {},
+  emits: ['select-value-change-second'],
   methods: {
     onSelectChangeSecond(event) {
       this.$emit('select-value-change-second', event.target.value);
@@ -13,9 +14,9 @@ export default {
   <div>
     <div>
       <input
+        v-model="$store.state.converter.secondInputValue"
         type="text"
         disabled
-        v-model="$store.state.converter.secondInputValue"
         class="
           mb-2
           text-center
@@ -35,10 +36,9 @@ export default {
           dark:focus:border-blue-500
         "
         required
-      />
+      >
     </div>
     <select
-      @change="onSelectChangeSecond($event)"
       v-model="$store.state.converter.selectedOptionTo"
       class="
         bg-gray-50
@@ -58,9 +58,11 @@ export default {
         dark:focus:ring-blue-500
         dark:focus:border-blue-500
       "
+      @change="onSelectChangeSecond($event)"
     >
       <option
         v-for="relatedOption in $store.state.converter.selectedConverterOptions"
+        :key="relatedOption"
         :value="relatedOption"
       >
         {{ relatedOption }}

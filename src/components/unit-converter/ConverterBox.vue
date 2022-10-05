@@ -76,10 +76,8 @@ export default {
     <label
       for="large"
       class="block mb-2 text-base font-medium text-gray-900 dark:text-gray-400"
-      >Choose to convert</label
-    >
+    >Choose to convert</label>
     <select
-      @change="onSelect($event)"
       v-model="$store.state.converter.selectedConversion"
       class="
         block
@@ -98,9 +96,11 @@ export default {
         dark:focus:ring-blue-500
         dark:focus:border-blue-500
       "
+      @change="onSelect($event)"
     >
       <option
         v-for="option in $store.state.converter.selectOptions"
+        :key="option"
         :value="option"
       >
         {{ option }}
@@ -111,11 +111,13 @@ export default {
     <InputSelectGroupFirst
       @input-value-change="inputValueChange"
       @select-value-change="selectValueChange"
-    ></InputSelectGroupFirst>
-    <h1 class="text-4xl mx-auto">=</h1>
+    />
+    <h1 class="text-4xl mx-auto">
+      =
+    </h1>
     <InputSelectGroupSecond
       @select-value-change-second="onSelectChangeSecond"
-    ></InputSelectGroupSecond>
+    />
   </div>
 
   <p class="text-center font-bold dark:text-gray-300">

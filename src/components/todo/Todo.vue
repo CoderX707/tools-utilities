@@ -17,8 +17,8 @@ export default {
   <div>
     <div class="relative">
       <input
-        type="search"
         v-model="$store.state.notes.todo.todoString.title"
+        type="search"
         class="
           block
           p-4
@@ -37,9 +37,8 @@ export default {
         "
         placeholder="Create tasks..."
         required
-      />
+      >
       <button
-        @click="this.$store.commit('addTodo')"
         type="button"
         class="
           text-white
@@ -56,6 +55,7 @@ export default {
           py-2
           dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800
         "
+        @click="$store.commit('addTodo')"
       >
         ADD
       </button>

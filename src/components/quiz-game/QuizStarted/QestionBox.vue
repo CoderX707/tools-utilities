@@ -1,11 +1,11 @@
 <script>
 import AnswerButton from './AnswerButton.vue';
 export default {
-  props: {
-    question: { type: Object, required: true },
-  },
   components: {
     AnswerButton,
+  },
+  props: {
+    question: { type: Object, required: true },
   },
 };
 </script>
@@ -26,8 +26,9 @@ export default {
   >
     <p
       class="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400"
-      v-html="question.question"
-    ></p>
+    >
+      {{ question.question }}
+    </p>
     <div
       class="
         justify-center
@@ -38,6 +39,7 @@ export default {
     >
       <AnswerButton
         v-for="answer in question.incorrect_answers"
+        :key="answer"
         :answer="answer"
       />
       <AnswerButton :answer="question.correct_answer" />

@@ -1,6 +1,7 @@
 <script>
 export default {
   props: {},
+  emits: ['change-currency-second'],
   methods: {
     onSelectChange: function (event) {
       this.$emit('change-currency-second', event.target.value);
@@ -13,9 +14,9 @@ export default {
   <div>
     <div>
       <input
+        v-model="$store.state.currencyModule.currencyConvertedInputValue"
         type="text"
         disabled
-        v-model="$store.state.currencyModule.currencyConvertedInputValue"
         class="
           mb-2
           text-center
@@ -35,10 +36,9 @@ export default {
           dark:focus:border-blue-500
         "
         required
-      />
+      >
     </div>
     <select
-      @change="onSelectChange($event)"
       class="
         bg-gray-50
         border border-gray-300
@@ -57,9 +57,11 @@ export default {
         dark:focus:ring-blue-500
         dark:focus:border-blue-500
       "
+      @change="onSelectChange($event)"
     >
       <option
         v-for="currency in $store.state.currencyModule.currencyWithCountry.countries"
+        :key="currency"
         :value="`${currency.currencyName}-${currency.currencyCode}-${currency.rate}`"
       >
         {{ currency.currencyName }} - ({{ currency.currencyCode }})

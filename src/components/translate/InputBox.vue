@@ -20,7 +20,6 @@ export default {
 <template>
   <div class="flex mt-5">
     <select
-      @change="onSelectChangeFrom($event)"
       class="
         bg-gray-50
         border border-gray-300
@@ -39,17 +38,20 @@ export default {
         dark:focus:ring-blue-500
         dark:focus:border-blue-500
       "
+      @change="onSelectChangeFrom($event)"
     >
       <option
         v-for="translateLang in $store.state.languageModule.translateLanguages"
+        :key="translateLang"
         :value="translateLang.code"
       >
         {{ translateLang.name }} - ({{ translateLang.nativeName }})
       </option>
     </select>
-    <h1 class="text-3xl mx-3 text-gray-400">To</h1>
+    <h1 class="text-3xl mx-3 text-gray-400">
+      To
+    </h1>
     <select
-      @change="onSelectChangeTo($event)"
       class="
         bg-gray-50
         border border-gray-300
@@ -68,9 +70,11 @@ export default {
         dark:focus:ring-blue-500
         dark:focus:border-blue-500
       "
+      @change="onSelectChangeTo($event)"
     >
       <option
         v-for="translateLang in $store.state.languageModule.translateLanguages"
+        :key="translateLang"
         :value="translateLang.code"
       >
         {{ translateLang.name }} - ({{ translateLang.nativeName }})
@@ -79,7 +83,6 @@ export default {
   </div>
 
   <textarea
-    @keyup="inputChange($event)"
     class="
       form-control
       block
@@ -100,6 +103,8 @@ export default {
     "
     rows="3"
     placeholder="Hello नमस्कार hola"
-    >{{ $store.state.languageModule.translateString }}</textarea
+    @keyup="inputChange($event)"
   >
+  {{ $store.state.languageModule.translateString }}
+</textarea>
 </template>

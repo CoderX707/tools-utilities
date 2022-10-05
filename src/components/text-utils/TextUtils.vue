@@ -9,7 +9,7 @@ export default {
 };
 </script>
 <template>
-<HeaderTitle heading="Text utilites"/>
+  <HeaderTitle heading="Text utilites" />
   <textarea
     v-model="$store.state.textUtils.inputText"
     class="
@@ -33,8 +33,7 @@ export default {
     "
     rows="4"
     placeholder="Output will be placed here."
-  >
-  </textarea>
+  />
   <div
     class="
       flex flex-wrap
@@ -60,7 +59,7 @@ export default {
     >
       <OptionCheckBox
         title="Remove Punctuations"
-        :checkboxValue="$store.state.textUtils.isRemovePunctuations"
+        :checkbox-value="$store.state.textUtils.isRemovePunctuations"
       />
     </div>
 
@@ -78,7 +77,7 @@ export default {
     >
       <OptionCheckBox
         title="Make Uppercase"
-        :checkboxValue="$store.state.textUtils.isUppercase"
+        :checkbox-value="$store.state.textUtils.isUppercase"
       />
     </div>
 
@@ -96,7 +95,7 @@ export default {
     >
       <OptionCheckBox
         title="Make Lowercase"
-        :checkboxValue="$store.state.textUtils.isLowercase"
+        :checkbox-value="$store.state.textUtils.isLowercase"
       />
     </div>
 
@@ -114,7 +113,7 @@ export default {
     >
       <OptionCheckBox
         title="New Line Remover"
-        :checkboxValue="$store.state.textUtils.isNewLineRemover"
+        :checkbox-value="$store.state.textUtils.isNewLineRemover"
       />
     </div>
     <div
@@ -131,7 +130,7 @@ export default {
     >
       <OptionCheckBox
         title="Extra Spaces Remover"
-        :checkboxValue="$store.state.textUtils.isExtraSpacesRemover"
+        :checkbox-value="$store.state.textUtils.isExtraSpacesRemover"
       />
     </div>
     <div
@@ -148,7 +147,7 @@ export default {
     >
       <OptionCheckBox
         title="Number Remover"
-        :checkboxValue="$store.state.textUtils.isNumberRemover"
+        :checkbox-value="$store.state.textUtils.isNumberRemover"
       />
     </div>
   </div>

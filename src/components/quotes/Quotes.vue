@@ -13,10 +13,10 @@ export default {
   <div class="md:p-5 slide md:bg-gray-200 dark:bg-gray-900">
     <div class="carousel-inner relative overflow-hidden w-full">
       <div
-        style="max-width: 99%"
         v-for="(quote, i) in $store.state.quotes.quotesList"
         :id="`slide-${i}`"
         :key="i"
+        style="max-width: 99%"
         :class="`${$store.state.quotes.active === i ? 'active' : 'left-full'}`"
         class="
           shadow-lg

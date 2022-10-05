@@ -21,8 +21,11 @@ export default {
 <template>
   <section class="text-gray-600 body-font">
     <div class="container px-5 py-5 mx-auto">
-      <draggable class="flex flex-wrap" v-model="gamesList">
-        <template v-slot:item="{ item }">
+      <draggable
+        v-model="gamesList"
+        class="flex flex-wrap"
+      >
+        <template #item="{ item }">
           <div class="flex relative m-4 cursor-move">
             <div
               class="
