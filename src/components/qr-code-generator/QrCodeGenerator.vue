@@ -1,39 +1,23 @@
 <script>
 import QrcodeVue from 'qrcode.vue';
+import InputField from './InputField.vue';
 
 export default {
   components: {
     QrcodeVue,
-  },
+    InputField
+}
 };
 </script>
 <template>
-  <textarea
-    v-model="$store.state.qrcode.qrCodeString"
-    class="
-      form-control
-      block
-      w-full
-      px-3
-      py-1.5
-      text-base
-      font-normal
-      bg-white bg-clip-padding
-      border border-solid border-gray-300
-      rounded
-      transition
-      ease-in-out
-      mb-4
-      dark:bg-gray-700 dark:text-gray-100
-      focus:border-blue-600 focus:outline-none
-    "
-    rows="2"
-    placeholder="URL, Text to Generate QR Code"
-  />
-  <figure class="qrcode mx-auto">
+  <InputField />
+  <figure 
+    id="qr-code" 
+    class="qrcode mx-auto"
+  >
     <qrcode-vue
       :value="$store.state.qrcode.qrCodeString"
-      :size="250"
+      :size="300"
       level="H"
     />
     <img

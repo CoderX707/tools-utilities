@@ -1,4 +1,4 @@
-import { weatherApiBaseUrl, Weather_API_key } from '../../helpers/Constants';
+import { weatherApiBaseUrl } from '../../helpers/Constants';
 import { apiGETcall } from '../../helpers/api_call';
 
 const moduleWeather = {
@@ -21,7 +21,6 @@ const moduleWeather = {
   },
   mutations: {
     get_Weathericon(state, { icons, range_id }) {
-      console.log(icons, range_id);
       switch (true) {
         case range_id >= 200 && range_id <= 232:
           state.icon = icons.Thunderstorm;
@@ -52,10 +51,7 @@ const moduleWeather = {
   actions: {
     async getWeather({ state, commit }) {
       state.errorMessage = '';
-      console.log(state.cityName);
-      const response = await apiGETcall(
-        `${weatherApiBaseUrl}q=${state.cityName}&appid=${Weather_API_key}&units=metric`
-      );
+      const response = await apiGETcall(weatherApiBaseUrl+state.cityName);
       if (response.status === 200) {
         state.responseObject = response.data;
         commit('get_Weathericon', {

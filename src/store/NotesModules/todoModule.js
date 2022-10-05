@@ -37,10 +37,6 @@ const todoModule = {
         state.todoList = JSON.parse(storage);
       }
     },
-
-    exportCsvFile(state) {
-      console.log('exportCsvFile');
-    },
   },
   actions: {},
   getters: {},

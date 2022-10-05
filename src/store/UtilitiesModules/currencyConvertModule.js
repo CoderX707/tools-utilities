@@ -37,24 +37,9 @@ const currencyConvertModule = {
       } else {
         const res = await apiGETcall(get_currency_api_endpoint);
         if (res.status == 200) {
-          let countryWithCurrency = [];
-          const countryCode = Object.entries(res.data.rates);
-          countryCode.map((code) => {
-            countryList.map((object) => {
-              if (code[0] === object.currencyCode) {
-                object.rate = code[1];
-                countryWithCurrency.push(object);
-              }
-            });
-          });
-          const countryWithCurrencyWithDetails = {
-            base: res.data.base,
-            date: res.data.date,
-            countries: countryWithCurrency,
-          };
           localStorage.setItem(
             currencyLocalstorageKey,
-            JSON.stringify(countryWithCurrencyWithDetails)
+            JSON.stringify(res.data)
           );
           commit('get_currency', countryWithCurrencyWithDetails);
         }
