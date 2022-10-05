@@ -2,10 +2,8 @@
   <div>
     <label
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-      >Select Category:</label
-    >
+    >Select Category:</label>
     <select
-      @change="$store.commit('onSelectCategory', $event.target.value)"
       class="
         bg-gray-50
         border border-gray-300
@@ -22,9 +20,11 @@
         dark:focus:ring-blue-500
         dark:focus:border-blue-500
       "
+      @change="$store.commit('onSelectCategory', $event.target.value)"
     >
       <option
         v-for="category in $store.state.games.quiz.quizCategories"
+        :key="category"
         :value="category.value"
       >
         {{ category.categoryName }}

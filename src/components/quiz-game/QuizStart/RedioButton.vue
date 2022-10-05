@@ -11,15 +11,8 @@ export default {
 <template>
   <div class="flex items-center mb-4">
     <input
-      @change="
-        $store.commit('onSelectRedioButton', {
-          group: groupName,
-          value: $event.target.checked,
-          label: $event.target.value,
-        })
-      "
-      :checked="selected"
       :id="label"
+      :checked="selected"
       type="radio"
       :name="groupName"
       :value="id"
@@ -34,11 +27,17 @@ export default {
         focus:ring-2
         dark:bg-gray-700 dark:border-gray-600
       "
-    />
+      @change="
+        $store.commit('onSelectRedioButton', {
+          group: groupName,
+          value: $event.target.checked,
+          label: $event.target.value,
+        })
+      "
+    >
     <label
       :for="label"
       class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-      >{{ label }}</label
-    >
+    >{{ label }}</label>
   </div>
 </template>

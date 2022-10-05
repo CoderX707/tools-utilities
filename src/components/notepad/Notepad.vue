@@ -1,6 +1,5 @@
 <script>
 import { QuillEditor } from '@vueup/vue-quill';
-import { ref } from 'vue';
 import html2pdf from 'html2pdf.js';
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
@@ -9,6 +8,7 @@ export default {
   components: {
     QuillEditor,
   },
+  computed: {},
 
   methods: {
     exportToPDF() {
@@ -22,7 +22,6 @@ export default {
       });
     },
   },
-  computed: {},
 };
 </script>
 

@@ -15,8 +15,8 @@ export default {
 
 <template>
   <ToastMessage
-    :message="$store.state.games.quiz.errorMessage"
     id="quizError"
+    :message="$store.state.games.quiz.errorMessage"
   />
   <div v-if="$store.state.games.quiz.quizStart === 0">
     <QuizStart />

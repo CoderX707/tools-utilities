@@ -27,6 +27,7 @@ export default {
       mb-2
     "
     @click="$store.commit('checkAnswer',answer)"
-    v-html="answer"
-  ></button>
+  >
+    {{ answer }}
+  </button>
 </template>

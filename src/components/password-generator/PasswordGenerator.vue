@@ -15,8 +15,8 @@ export default {
     <HeaderTitle heading="Password Generator" />
     <div class="relative mt-4">
       <input
-        type="search"
         v-model="$store.state.generatePassword.ganeratedPassword"
+        type="search"
         :class="{
           'text-green-700':
             $store.state.generatePassword.passwordStrength === 0,
@@ -43,7 +43,7 @@ export default {
         "
         placeholder="Generate strong password"
         required
-      />
+      >
 
       <button
         type="submit"
@@ -71,11 +71,10 @@ export default {
       <label
         for="default-range"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >Password Length ( {{ $store.state.generatePassword.passwordLength }} )
+      >Password Length ( {{ $store.state.generatePassword.passwordLength }} )
       </label>
       <input
         type="range"
-        @input="$store.commit('changePasswordLength', $event.target.value)"
         :value="$store.state.generatePassword.passwordLength"
         min="6"
         max="16"
@@ -88,7 +87,8 @@ export default {
           cursor-pointer
           dark:bg-gray-700
         "
-      />
+        @input="$store.commit('changePasswordLength', $event.target.value)"
+      >
     </div>
 
     <div
@@ -116,7 +116,7 @@ export default {
       >
         <Checkbox
           title="Uppercase"
-          :checkboxValue="$store.state.generatePassword.isUpperCase"
+          :checkbox-value="$store.state.generatePassword.isUpperCase"
         />
       </div>
 
@@ -134,7 +134,7 @@ export default {
       >
         <Checkbox
           title="Numbers"
-          :checkboxValue="$store.state.generatePassword.isNumeric"
+          :checkbox-value="$store.state.generatePassword.isNumeric"
         />
       </div>
 
@@ -152,7 +152,7 @@ export default {
       >
         <Checkbox
           title="Lowercase"
-          :checkboxValue="$store.state.generatePassword.isLowerCase"
+          :checkbox-value="$store.state.generatePassword.isLowerCase"
         />
       </div>
 
@@ -170,7 +170,7 @@ export default {
       >
         <Checkbox
           title="Symbols"
-          :checkboxValue="$store.state.generatePassword.isSymbols"
+          :checkbox-value="$store.state.generatePassword.isSymbols"
         />
       </div>
     </div>

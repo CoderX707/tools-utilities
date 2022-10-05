@@ -22,7 +22,7 @@
       "
       placeholder="City Name"
       required
-    />
+    >
     <button
       type="submit"
       class="

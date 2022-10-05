@@ -7,10 +7,6 @@ export default {
     Quotes,
     Draggable,
   },
-  mounted() {
-    const div = document.getElementsByClassName('rich-text')[0].parentNode;
-    div.style.gridColumn = ' span 2 / span 2';
-  },
   computed: {
     conponentsList: {
       get() {
@@ -21,6 +17,10 @@ export default {
       },
     },
   },
+  mounted() {
+    const div = document.getElementsByClassName('rich-text')[0].parentNode;
+    div.style.gridColumn = ' span 2 / span 2';
+  },
 };
 </script>
 
@@ -29,10 +29,10 @@ export default {
   <section class="text-gray-600 body-font">
     <div class="lg:container px-5 py-5 mx-auto">
       <draggable
-        class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"
         v-model="conponentsList"
+        class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"
       >
-        <template v-slot:item="{ item }">
+        <template #item="{ item }">
           <div
             class="relative m-4 cursor-move"
             :class="{ 'rich-text': item.components?.QuillEditor }"

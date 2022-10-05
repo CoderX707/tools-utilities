@@ -1,8 +1,8 @@
 <script>
 export default {
   props: {
-    todo: Object,
-    index: Number,
+    todo: {type:Object,required:true},
+    index: {type:Number,required:true},
   },
   methods: {
     edit(index) {
@@ -15,7 +15,11 @@ export default {
 };
 </script>
 <template>
-  <div class="w-0 flex-1 flex dark:text-white items-center cursor-pointer" :class="{ 'line-through': todo.isDone }" @click="$store.commit('todoDone', index);">
+  <div
+    class="w-0 flex-1 flex dark:text-white items-center cursor-pointer"
+    :class="{ 'line-through': todo.isDone }"
+    @click="$store.commit('todoDone', index);"
+  >
     <span class="ml-2 flex-1 w-0 truncate">
       {{ todo.title }}
     </span>

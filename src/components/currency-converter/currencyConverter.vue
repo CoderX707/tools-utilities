@@ -6,6 +6,52 @@ export default {
     InputGroupFirst,
     InputGroupSecond,
   },
+  computed: {
+    convertCurrency () {
+      if (
+        parseFloat(
+          this.$store.state.currencyModule.selectedCurrrencyFrom.rate
+        ) <
+        parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate)
+      ) {
+        const calculated =
+          this.$store.state.currencyModule.currencyInputValue *
+          parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate);
+        this.$store.state.currencyModule.currencyConvertedInputValue =
+          calculated.toFixed(4);
+        this.$store.state.currencyModule.currencyFormula = `(${this.$store.state.currencyModule.currencyInputValue
+          } * ${this.$store.state.currencyModule.selectedCurrrencyTo.rate
+          } (exchange rate) )   = ${calculated.toFixed(4)}`;
+      }
+      if (
+        parseFloat(
+          this.$store.state.currencyModule.selectedCurrrencyFrom.rate
+        ) >
+        parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate)
+      ) {
+        const calculated =
+          this.$store.state.currencyModule.currencyInputValue /
+          parseFloat(
+            this.$store.state.currencyModule.selectedCurrrencyFrom.rate
+          );
+        this.$store.state.currencyModule.currencyConvertedInputValue =
+          calculated.toFixed(4);
+        this.$store.state.currencyModule.currencyFormula = `(${this.$store.state.currencyModule.currencyInputValue
+          } / ${this.$store.state.currencyModule.selectedCurrrencyFrom.rate
+          } (exchange rate) )   = ${calculated.toFixed(4)}`;
+      }
+      if (
+        parseFloat(
+          this.$store.state.currencyModule.selectedCurrrencyFrom.rate
+        ) ==
+        parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate)
+      ) {
+        this.$store.state.currencyModule.currencyConvertedInputValue =
+          this.$store.state.currencyModule.currencyInputValue;
+        this.$store.state.currencyModule.currencyFormula = `(${this.$store.state.currencyModule.currencyInputValue} == ${this.$store.state.currencyModule.selectedCurrrencyTo.rate} (exchange rate) )   = ${this.$store.state.currencyModule.currencyInputValue}`;
+      }
+    },
+  },
   beforeMount() {
     this.$store.dispatch('get_currency_price');
   },
@@ -34,56 +80,6 @@ export default {
       this.convertCurrency;
     },
   },
-  computed: {
-    convertCurrency() {
-      if (
-        parseFloat(
-          this.$store.state.currencyModule.selectedCurrrencyFrom.rate
-        ) <
-        parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate)
-      ) {
-        const calculated =
-          this.$store.state.currencyModule.currencyInputValue *
-          parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate);
-        this.$store.state.currencyModule.currencyConvertedInputValue =
-          calculated.toFixed(4);
-        this.$store.state.currencyModule.currencyFormula = `(${
-          this.$store.state.currencyModule.currencyInputValue
-        } * ${
-          this.$store.state.currencyModule.selectedCurrrencyTo.rate
-        } (exchange rate) )   = ${calculated.toFixed(4)}`;
-      }
-      if (
-        parseFloat(
-          this.$store.state.currencyModule.selectedCurrrencyFrom.rate
-        ) >
-        parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate)
-      ) {
-        const calculated =
-          this.$store.state.currencyModule.currencyInputValue /
-          parseFloat(
-            this.$store.state.currencyModule.selectedCurrrencyFrom.rate
-          );
-        this.$store.state.currencyModule.currencyConvertedInputValue =
-          calculated.toFixed(4);
-        this.$store.state.currencyModule.currencyFormula = `(${
-          this.$store.state.currencyModule.currencyInputValue
-        } / ${
-          this.$store.state.currencyModule.selectedCurrrencyFrom.rate
-        } (exchange rate) )   = ${calculated.toFixed(4)}`;
-      }
-      if (
-        parseFloat(
-          this.$store.state.currencyModule.selectedCurrrencyFrom.rate
-        ) ==
-        parseFloat(this.$store.state.currencyModule.selectedCurrrencyTo.rate)
-      ) {
-        this.$store.state.currencyModule.currencyConvertedInputValue =
-          this.$store.state.currencyModule.currencyInputValue;
-        this.$store.state.currencyModule.currencyFormula = `(${this.$store.state.currencyModule.currencyInputValue} == ${this.$store.state.currencyModule.selectedCurrrencyTo.rate} (exchange rate) )   = ${this.$store.state.currencyModule.currencyInputValue}`;
-      }
-    },
-  },
 };
 </script>
 
@@ -100,18 +96,18 @@ export default {
   </div>
 
   <small class="text-gray-400">
-    Updated At: {{ this.$store.state.currencyModule.currencyWithCountry.date }},
-    Base on {{ this.$store.state.currencyModule.currencyWithCountry.base }}
+    Updated At: {{ $store.state.currencyModule.currencyWithCountry.date }},
+    Base on {{ $store.state.currencyModule.currencyWithCountry.base }}
   </small>
   <div class="flex mt-5">
-    <InputGroupFirst
-      @input-value-change="inputValueChange"
+    <InputGroupFirst 
+      @input-value-change="inputValueChange" 
       @change-currency-first="onChangeCurrencyFirst"
-    ></InputGroupFirst>
-    <h1 class="text-4xl mx-auto">=</h1>
-    <InputGroupSecond
-      @change-currency-second="onChangeCurrencySecond"
-    ></InputGroupSecond>
+    />
+    <h1 class="text-4xl mx-auto">
+      =
+    </h1>
+    <InputGroupSecond @change-currency-second="onChangeCurrencySecond" />
   </div>
   <p class="text-center font-bold dark:text-gray-300">
     <span class="bg-amber-500 text-white font-bold">Formula:</span>

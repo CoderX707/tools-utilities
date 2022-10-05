@@ -29,8 +29,7 @@ export default {
     "
     rows="2"
     placeholder="URL, Text to Generate QR Code"
-  >
-  </textarea>
+  />
   <figure class="qrcode mx-auto">
     <qrcode-vue
       :value="$store.state.qrcode.qrCodeString"
@@ -41,7 +40,7 @@ export default {
       class="qrcode__image dark:bg-gray-700 bg-white"
       :src="$store.state.darkLightTheme.logo"
       alt="QR Code"
-    />
+    >
   </figure>
 </template>
 <style scoped>

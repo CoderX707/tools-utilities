@@ -14,9 +14,9 @@ export default defineComponent({
   <div>
     <div class="mb-6">
       <input
+        id="default-input"
         disabled
         type="text"
-        id="default-input"
         :value="$store.state.utilites.calculator.calculatorValue || 0"
         class="
           bg-gray-50
@@ -35,14 +35,17 @@ export default defineComponent({
           dark:focus:ring-blue-500
           dark:focus:border-blue-500
         "
-      />
+      >
     </div>
     <div class="grid grid-cols-4 gap-2">
       <button
         v-for="n in $store.state.utilites.calculator.calculatorButtons"
         :key="n"
         type="button"
-        @click="action(n)"
+        :class="{
+          'bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800': ['C', '*', '/', '-', '+', '%', '='].includes(n),
+          'col-span-2': ['C', '='].includes(n),
+        }"
         class="
           text-gray-900
           bg-white
@@ -64,10 +67,7 @@ export default defineComponent({
           dark:hover:border-gray-600
           dark:focus:ring-gray-700
         "
-        :class="{
-          'bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800': ['C', '*', '/', '-', '+', '%', '='].includes(n),
-          'col-span-2': ['C', '='].includes(n),
-        }"
+        @click="action(n)"
       >
         {{ n }}
       </button>

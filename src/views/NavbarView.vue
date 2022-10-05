@@ -3,13 +3,16 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
 } from '@headlessui/vue';
 import { MenuIcon, XIcon } from '@heroicons/vue/outline';
 export default {
+  components: {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    MenuIcon,
+    XIcon,
+  },
   data() {
     return {
       navigation: [
@@ -20,20 +23,6 @@ export default {
         { name: 'About', href: '/about', current: false },
       ],
     };
-  },
-  components: {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuItems,
-    MenuIcon,
-    XIcon,
-  },
-  beforeMount() {
-    this.$store.commit('applyTheme');
   },
   watch: {
     $route() {
@@ -46,11 +35,18 @@ export default {
       });
     },
   },
+  beforeMount() {
+    this.$store.commit('applyTheme');
+  },
 };
 </script>
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <Disclosure as="nav" class="dark:bg-gray-800 shadow-md" v-slot="{ open }">
+  <Disclosure
+    v-slot="{ open }"
+    as="nav"
+    class="dark:bg-gray-800 shadow-md"
+  >
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between h-16">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -70,8 +66,16 @@ export default {
             "
           >
             <span class="sr-only">Open main menu</span>
-            <MenuIcon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
-            <XIcon v-else class="block h-6 w-6" aria-hidden="true" />
+            <MenuIcon 
+              v-if="!open" 
+              class="block h-6 w-6" 
+              aria-hidden="true"
+            />
+            <XIcon 
+              v-else 
+              class="block h-6 w-6" 
+              aria-hidden="true"
+            />
           </DisclosureButton>
         </div>
         <div
@@ -88,7 +92,7 @@ export default {
                 class="block h-8 w-auto"
                 :src="$store.state.darkLightTheme.logo"
                 alt="Workflow"
-              />
+              >
             </router-link>
           </div>
           <div class="hidden sm:block sm:ml-6">
@@ -104,7 +108,8 @@ export default {
                   'px-3 py-2 rounded-md text-sm font-medium',
                 ]"
                 :aria-current="item.current ? 'page' : undefined"
-                >{{ item.name }}
+              >
+                {{ item.name }}
               </router-link>
             </div>
           </div>
@@ -120,7 +125,10 @@ export default {
             sm:static sm:inset-auto sm:ml-6 sm:pr-0
           "
         >
-          <button class="mr-3" @click="$store.commit('changeTheme')">
+          <button 
+            class="mr-3" 
+            @click="$store.commit('changeTheme')"
+          >
             <svg
               v-if="$store.state.darkLightTheme.themeColor === 'dark'"
               xmlns="http://www.w3.org/2000/svg"

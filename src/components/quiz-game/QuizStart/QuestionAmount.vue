@@ -2,13 +2,12 @@
   <div class="mt-2">
     <label
       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400"
-      >Number of Questions:</label
-    >
+    >Number of Questions:</label>
     <input
+      v-model="$store.state.games.quiz.numberOfQuestions"
       type="number"
       max="50"
       min="1"
-      v-model="$store.state.games.quiz.numberOfQuestions"
       class="
         mb-2
         text-center
@@ -28,6 +27,6 @@
         dark:focus:border-blue-500
       "
       required
-    />
+    >
   </div>
 </template>

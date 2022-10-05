@@ -34,6 +34,8 @@ export default {
     "
   >
     <div
+      v-for="readioButton in difficultyRedioButton"
+      :key="readioButton"
       class="
         my-1
         px-1
@@ -44,13 +46,12 @@ export default {
         lg:my-1 lg:px-1 lg:w-1/2
         xl:my-1 xl:px-1 xl:w-1/2
       "
-      v-for="readioButton in difficultyRedioButton"
     >
       <RedioButton
         :id="readioButton.id"
         :label="readioButton.label"
         :selected="readioButton.selected"
-        :groupName="readioButton.groupName"
+        :group-name="readioButton.groupName"
       />
     </div>
   </div>
@@ -81,10 +82,10 @@ export default {
       "
     >
       <RedioButton
-        label="Multiple Choice"
         id="multiple"
+        label="Multiple Choice"
         :selected="true"
-        groupName="type"
+        group-name="type"
       />
     </div>
     <div
@@ -99,7 +100,11 @@ export default {
         xl:my-1 xl:px-1 xl:w-1/2
       "
     >
-      <RedioButton label="True / False" id="boolean" groupName="type" />
+      <RedioButton
+        id="boolean"
+        label="True / False"
+        group-name="type"
+      />
     </div>
   </div>
   <div class="flex justify-center items-center">

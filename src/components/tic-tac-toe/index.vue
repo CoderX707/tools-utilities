@@ -1,4 +1,4 @@
 <script></script>
 <template>
-    Tic tac toe Game
+  Tic tac toe Game
 </template>

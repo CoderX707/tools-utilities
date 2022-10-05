@@ -14,13 +14,13 @@ export default {
 <template>
   <HeaderTitle heading="Weather" />
   <ToastMessage
-    :message="$store.state.utilites.weather.errorMessage"
     id="weatherError"
+    :message="$store.state.utilites.weather.errorMessage"
   />
   <SearchBox />
   <div
-    class="grid justify-items-center"
     v-if="$store.state.utilites.weather.responseObject !== null"
+    class="grid justify-items-center"
   >
     <p class="my-4 text-2xl dark:text-white">
       {{ $store.state.utilites.weather.responseObject.name }},
@@ -47,7 +47,10 @@ export default {
       {{ $store.state.utilites.weather.responseObject.weather[0].description }}
     </p>
   </div>
-  <div v-else class="mt-3 text-center text-gray-500">
+  <div
+    v-else
+    class="mt-3 text-center text-gray-500"
+  >
     Search city for get current weather
   </div>
 </template>
