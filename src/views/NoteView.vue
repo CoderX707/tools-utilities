@@ -5,14 +5,21 @@ import html2pdf from 'html2pdf.js';
 
 import { pdfFileName } from '../helpers/Constants';
 import NotFound from './NotFound.vue'
+import Loading from '../components/Loader/Loading.vue';
+import ToastMessage from '../components/CommonComponents/ToastMessage.vue';
 
 export default {
   components: {
     QuillEditor,
-    NotFound
-  },
+    NotFound,
+    Loading,
+    ToastMessage
+},
   beforeCreate() {
     this.$store.dispatch('getNote', this.$route.params.slug)
+  },
+  unmounted() {
+    this.$store.commit('clearState');
   },
   methods: {
     exportToPDF() {
@@ -32,8 +39,15 @@ export default {
 }
 </script>
 <template>
-  <div v-if="$store.state.notes.notepad.isLoading">
-    loading...
+  <ToastMessage
+    id="noteError"
+    :message="$store.state.notes.notepad.errorMsg"
+  />
+  <div
+    v-if="$store.state.notes.notepad.isLoading"
+    class="m-4"
+  >
+    <Loading />
   </div>
   <div v-else-if="$store.state.notes.notepad.sharedNote==null">
     <NotFound />
@@ -53,7 +67,7 @@ export default {
           rounded-lg
           border border-gray-300
           focus:ring-red-500 focus:border-red-500
-          dark:bg-gray-700
+          dark:bg-gray-800
           dark:border-gray-600
           dark:placeholder-gray-400
           dark:text-white

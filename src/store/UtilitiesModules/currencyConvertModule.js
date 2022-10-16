@@ -41,7 +41,7 @@ const currencyConvertModule = {
             currencyLocalstorageKey,
             JSON.stringify(res.data)
           );
-          commit('get_currency', countryWithCurrencyWithDetails);
+          commit('get_currency', res.data);
         }
       }
     },

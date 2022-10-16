@@ -5,14 +5,18 @@ import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import InputShare from './InputShare.vue';
 import { pdfFileName } from '../../helpers/Constants.js';
 import ShowToast from './showToast.vue';
+import ToastMessage from '../CommonComponents/ToastMessage.vue';
 export default {
   components: {
     QuillEditor,
     InputShare,
-    ShowToast
-  },
+    ShowToast,
+    ToastMessage
+},
   computed: {},
-
+  unmounted() {
+    this.$store.commit('clearState');
+  },
   methods: {
     exportToPDF() {
       const documentPdf = `<div class="content ql-editor">
@@ -32,9 +36,13 @@ export default {
 </script>
 
 <template>
-  <div v-if="$store.state.notes.notepad.sharedNote">
+  <div v-if="$store.state.notes.notepad.sharedNote!=null">
     <ShowToast />
   </div>
+  <ToastMessage
+    id="noteError"
+    :message="$store.state.notes.notepad.errorMsg"
+  />
   <InputShare />
   <QuillEditor
     v-model:content="$store.state.notes.notepad.inputValue"

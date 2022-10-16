@@ -1,5 +1,5 @@
 <script>
-import Loading from './Loading.vue';
+import Loading from '../../Loader/Loading.vue';
 import QuestionBox from './QestionBox.vue';
 export default {
   components: {

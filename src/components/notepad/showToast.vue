@@ -9,13 +9,9 @@ export default {
       class="p-2 cursor-pointer bg-indigo-800 items-center text-indigo-100 leading-none rounded-full flex lg:inline-flex"
       role="alert"
     >
-      <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">{{ $store.state.notes.notepad.sharedNote.errors?'Error':'Preview' }}</span>
-      <span
-        v-if="$store.state.notes.notepad.sharedNote.errors"
-        class="font-semibold mr-2 text-left flex-auto"
-      >Something went wrong!</span>
+      <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Preview</span>
       <router-link
-        v-else
+        v-if="$store.state.notes.notepad.sharedNote?.note?.slug"
         :to="$store.state.notes.notepad.sharedNote?.note?.slug||'#'"
         class="font-semibold mr-2 text-left flex-auto"
       >

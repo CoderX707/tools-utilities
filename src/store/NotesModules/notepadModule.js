@@ -8,11 +8,20 @@ const moduleNotepad = {
     return {
       inputValue: ref('<h1>This is header</h1><p>This is paragraph</p>'),
       noteTitle: ref(''),
+      errorMsg: ref(''),
       sharedNote: ref(null),
       isLoading: ref(false)
     };
   },
-  mutations: {},
+  mutations: {
+    clearState(state) {
+      state.inputValue = '<h1>This is header</h1><p>This is paragraph</p>',
+      state.noteTitle = '',
+      state.errorMsg = '',
+      state.sharedNote = null,
+      state.isLoading = false
+    }
+  },
   actions: {
     async createNote({ commit, state }) {
       const slug = stringToSlug(state.noteTitle);
@@ -26,7 +35,8 @@ const moduleNotepad = {
       if (res.status == 200) {
         state.sharedNote = res.data;
       } else {
-        state.sharedNote = res.response.data;
+        state.errorMsg = 'Something went wrong!'
+        state.sharedNote = null;
       }
     },
     async getNote({ commit, state }, slug) {
@@ -36,13 +46,15 @@ const moduleNotepad = {
         state.sharedNote = res.data;
         state.isLoading = false;
       } else {
+        state.errorMsg = 'Not found!'
         state.sharedNote = null;
         state.isLoading = false;
       }
     },
     async deleteNote({ commit, state }, id) {
       const res = await apiDELETEcall(note_api_endpoint + '/' + id)
-      state.sharedNote=null;
+      state.errorMsg = 'Note deleted!'
+      state.sharedNote = null;
     }
   },
   getters: {},

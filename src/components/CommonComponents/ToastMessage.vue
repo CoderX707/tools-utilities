@@ -24,7 +24,9 @@ export default {
   },
   mounted() {
     const div = document.getElementById(this.id);
-    div.style.display = 'none';
+    if(div){
+      div.style.display = 'none';
+    }
   },
   unmounted() {
     clearTimeout(this.timeOutClear);
