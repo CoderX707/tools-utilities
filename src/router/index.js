@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import UtilitiesView from '../views/UtilitiesView.vue';
 import NotesView from '../views/NotesView.vue';
+import NoteView from '../views/NoteView.vue';
 import GamesView from '../views/GamesView.vue';
 
 const router = createRouter({
@@ -38,6 +39,14 @@ const router = createRouter({
         title: 'Games',
       },
       component: GamesView,
+    },
+    {
+      path: '/:slug',
+      name: 'Note Slug',
+      meta: {
+        title: 'Note Slug',
+      },
+      component: NoteView,
     },
     {
       path: '/about',

@@ -14,6 +14,7 @@ export const colorTheme = 'color-theme';
 export const quizApiBaseUrl = 'https://opentdb.com/api.php?'; //amount=10&category=30&difficulty=medium&type=multiple
 export const weatherApiBaseUrl = 'https://mockx-api.herokuapp.com/rest-api/v1/weather/';
 export const get_currency_api_endpoint = 'https://mockx-api.herokuapp.com/rest-api/v1/currency';
+export const note_api_endpoint = 'https://mockx-api.herokuapp.com/rest-api/v1/notes';
 export const lowerCaseCharacters = 'abcdefghijklmnopqrstuvwxyz';
 export const upperCaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 export const numericCharacters = '0123456789';

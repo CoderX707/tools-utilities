@@ -25,3 +25,12 @@ export const generateURL = (category, difficulty, type) => {
   }
   return urlString;
 };
+
+export const stringToSlug = (string) => {
+  return string
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
