@@ -9,6 +9,7 @@ import QrCodeGenerator from '../../components/qr-code-generator/QrCodeGenerator.
 import TextUtils from '../../components/text-utils/TextUtils.vue';
 import Calculator from '../../components/calculator/index.vue';
 import Weather from '../../components/weather/index.vue';
+import FileSharing from '../../components/fileSharing/index.vue';
 import { shuffleArray } from '../../helpers/helper';
 import { utilitesSomponentsListString } from '../../helpers/all_conponents_list';
 
@@ -22,6 +23,7 @@ const components = {
   TextUtils,
   Calculator,
   Weather,
+  FileSharing
 };
 
 const lookupComponent = (name) => {

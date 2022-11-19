@@ -8,6 +8,7 @@ export const utilitesSomponentsListString = [
   'TextUtils',
   'Calculator',
   'Weather',
+  'FileSharing'
 ];
 
 export const notesComponentsListString = ['Notepad', 'Todo'];
@@ -26,4 +27,5 @@ export const homeComponentsListString = [
   'TicTacToe',
   'Notepad',
   'Todo',
+  'FileSharing'
 ];

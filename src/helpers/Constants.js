@@ -2,6 +2,7 @@ export const DEFAULT_TITLE = 'Tools & Utilities';
 export const LogoDark = './images/dark-logo.png';
 export const LogoLight = './images/light-logo.png';
 export const currencyLocalstorageKey = 'currency';
+export const socket_io_serverUrl = 'https://mockx-api.herokuapp.com/';
 export const todotorageKey = 'todo';
 export const pdfFileName = 'document.pdf';
 export const UpperCaseText = 'Make Uppercase';

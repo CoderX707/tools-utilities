@@ -1,4 +1,5 @@
 import moduleCalculator from './calculatorModule';
+import moduleFileSharing from './fileSharingModule';
 import moduleWeather from './weatherModule';
 
 const moduleUtilities = {
@@ -11,6 +12,7 @@ const moduleUtilities = {
   modules: {
     calculator: moduleCalculator,
     weather: moduleWeather,
+    fileSharing:moduleFileSharing
   },
 };
 
