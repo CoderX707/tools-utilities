@@ -8,7 +8,7 @@ export default {
     Draggable,
   },
   computed: {
-    conponentsList: {
+    componentsList: {
       get() {
         return this.$store.state.home.homeDraggable.homeComponents;
       },
@@ -18,8 +18,9 @@ export default {
     },
   },
   mounted() {
-    const div = document.getElementsByClassName('rich-text')[0].parentNode;
-    div.style.gridColumn = ' span 2 / span 2';
+		document.getElementsByClassName('col-span-2').forEach((e)=>{
+      e.parentNode.style.gridColumn = ' span 2 / span 2';
+    })
   },
 };
 </script>
@@ -29,13 +30,13 @@ export default {
   <section class="text-gray-600 body-font">
     <div class="lg:container px-5 py-5 mx-auto">
       <draggable
-        v-model="conponentsList"
+        v-model="componentsList"
         class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"
       >
         <template #item="{ item }">
           <div
             class="relative m-4 cursor-move"
-            :class="{ 'rich-text': item.components?.QuillEditor }"
+            :class="[( item.name==='Notepad' || item.name==='JsonFormatter' ?'col-span-2':'' )]"
           >
             <div
               class="

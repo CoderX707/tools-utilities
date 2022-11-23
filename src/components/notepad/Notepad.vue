@@ -7,6 +7,7 @@ import { pdfFileName } from '../../helpers/Constants.js';
 import ShowToast from './showToast.vue';
 import ToastMessage from '../CommonComponents/ToastMessage.vue';
 export default {
+  name:"Notepad",
   components: {
     QuillEditor,
     InputShare,

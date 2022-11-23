@@ -15,6 +15,11 @@ export default {
       },
     },
   },
+  mounted(){
+    document.getElementsByClassName('col-span-2').forEach((e)=>{
+      e.parentNode.style.gridColumn = ' span 2 / span 2';
+    })
+  }
 };
 </script>
 
@@ -26,7 +31,10 @@ export default {
         class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4"
       >
         <template #item="{ item }">
-          <div class="relative m-4 cursor-move">
+          <div
+            class="relative m-4 cursor-move"
+            :class="[( item.name==='JsonFormatter' ?'col-span-2':'' )]"
+          >
             <div
               class="
                p-4
